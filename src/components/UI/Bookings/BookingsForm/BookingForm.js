@@ -1,25 +1,26 @@
 import React from 'react';
-import './BookingForm.css'; // Import the CSS for BookingForm
+import './BookingForm.css';
 
-function BookingForm({ formData, handleChange, handleSubmit }) {
+function BookingForm({ availableTimes, dispatch }) {
+  const handleDateChange = (e) => {
+    // Dispatch an action to update available times when date changes
+    dispatch({ type: 'UPDATE_TIMES', payload: e.target.value });
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="booking-form">
+    <form className="booking-form">
       <label htmlFor="date">Choose date</label>
       <input
         type="date"
         id="date"
-        value={formData.date}
-        onChange={handleChange}
+        onChange={handleDateChange} // Handle date change
       />
 
       <label htmlFor="time">Choose time</label>
-      <select id="time" value={formData.time} onChange={handleChange}>
-        <option value="17:00">17:00</option>
-        <option value="18:00">18:00</option>
-        <option value="19:00">19:00</option>
-        <option value="20:00">20:00</option>
-        <option value="21:00">21:00</option>
-        <option value="22:00">22:00</option>
+      <select id="time">
+        {availableTimes.map((time, index) => (
+          <option key={index} value={time}>{time}</option>
+        ))}
       </select>
 
       <label htmlFor="guests">Number of guests</label>
@@ -29,12 +30,10 @@ function BookingForm({ formData, handleChange, handleSubmit }) {
         placeholder="1"
         min="1"
         max="10"
-        value={formData.guests}
-        onChange={handleChange}
       />
 
       <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" value={formData.occasion} onChange={handleChange}>
+      <select id="occasion">
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
       </select>

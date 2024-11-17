@@ -1,38 +1,13 @@
-import React, { useState } from 'react';
-import BookingForm from '../BookingsForm/BookingForm';
-import './Bookings.css'; // Import the CSS for Bookings
+import React from 'react';
+import BookingForm from '../BookingForm/BookingForm';
 
-function Bookings() {
-  // State to hold form data
-  const [formData, setFormData] = useState({
-    date: '',
-    time: '',
-    guests: 1,
-    occasion: ''
-  });
-
-  // Handle change in input fields
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value
-    }));
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form Data Submitted:', formData);
-  };
-
+function Bookings({ availableTimes, dispatch }) {
   return (
     <div className="bookings-container">
-      <h2>Book Your Reservation</h2>
+      <h2>Make a Booking</h2>
       <BookingForm
-        formData={formData}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
+        availableTimes={availableTimes}
+        dispatch={dispatch}
       />
     </div>
   );
