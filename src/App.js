@@ -1,12 +1,16 @@
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Main from './components/UI/Main';
-
+import ConfirmedBooking from './components/ConfirmedBooking';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Reservation System</h1>
-          <Main />
+    <div>
+      <Routes>
+        {/* Define routes */}
+        <Route path="/" element={<Main />} />
+        <Route path="/booking-confirmed" element={<ConfirmedBooking />} />
+      </Routes>
     </div>
   );
 }
