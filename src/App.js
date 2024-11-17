@@ -1,10 +1,12 @@
 import './App.css';
-import ReservationForm from './components/forms/ReservationForm';
+import Bookings from './components/UI/Bookings/Bookings/Bookings';
+
 
 function App() {
   return (
     <div className="App">
-          <ReservationForm />
+      <h1>Reservation System</h1>
+          <Bookings />
     </div>
   );
 }

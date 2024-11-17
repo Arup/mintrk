@@ -1,0 +1,29 @@
+.booking-form {
+    display: grid;
+    max-width: 200px;
+    gap: 20px;
+  }
+  
+  .booking-form label {
+    font-weight: bold;
+  }
+  
+  .booking-form input,
+  .booking-form select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .booking-form input[type="submit"] {
+    background-color: #ff0059;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .booking-form input[type="submit"]:hover {
+    background-color: #00b0b3;
+  }
+  

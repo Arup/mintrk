@@ -1,32 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import './BookingForm.css'; // Import the CSS for BookingForm
 
-function ReservationForm() {
-  // State to hold form data
-  const [formData, setFormData] = useState({
-    date: '',
-    time: '',
-    guests: 1,
-    occasion: ''
-  });
-
-  // Handle change in input fields
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value
-    }));
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform actions with formData, e.g., send it to a server
-    console.log('Form Data Submitted:', formData);
-  };
-
+function BookingForm({ formData, handleChange, handleSubmit }) {
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}>
+    <form onSubmit={handleSubmit} className="booking-form">
       <label htmlFor="date">Choose date</label>
       <input
         type="date"
@@ -62,9 +39,9 @@ function ReservationForm() {
         <option value="Anniversary">Anniversary</option>
       </select>
 
-      <input type="submit" value="Make Your reservation" />
+      <input type="submit" value="Make Your Reservation" />
     </form>
   );
 }
 
-export default ReservationForm;
+export default BookingForm;
